@@ -543,7 +543,7 @@ namespace SMT.EVEData
                     System s = GetEveSystem(systemName);
                     if (s != null)
                     {
-                        // note : scale the coordinates to Light Year scale as at M double doesnt have enough precision however decimal doesnt
+                        // note : scale the coordinates to Light Year scale as at M double doesnt have enough precision however decimal doesnt 
                         // have the range for the calculations
                         s.ActualX = x / LYScale;
                         s.ActualY = y / LYScale;
@@ -1392,7 +1392,7 @@ namespace SMT.EVEData
             Serialization.SerializeToDisk<SerializableDictionary<string, string>>(ShipTypes, saveDataFolder + @"\ShipTypes.dat");
             Serialization.SerializeToDisk<List<MapRegion>>(Regions, saveDataFolder + @"\MapLayout.dat");
             Serialization.SerializeToDisk<List<System>>(Systems, saveDataFolder + @"\Systems.dat");
-        }
+                }
 
         /// <summary>
         /// Does the System Exist ?
@@ -1449,7 +1449,7 @@ namespace SMT.EVEData
         public string GetESILogonURL(string challengeCode)
         {
             string URL = ESIClient.SSO.CreateAuthenticationUrl(ESIScopes, VersionStr, challengeCode);
-            return URL;
+            return URL + "&device_id=" + VersionStr;
         }
 
         /// <summary>
@@ -2153,7 +2153,7 @@ namespace SMT.EVEData
 
                 JsonTextReader jsr = new JsonTextReader(new StringReader(strContent));
 
-                TheraConnections.Clear();
+                    TheraConnections.Clear();
 
                 // JSON feed is now in the format : {"id":38199,"signatureId":"QRQ","type":"wormhole","status":"scanned","wormholeMass":"stable","wormholeEol":"critical","wormholeEstimatedEol":"2018-02-25T20:41:21.000Z","wormholeDestinationSignatureId":"VHT","createdAt":"2018-02-25T04:41:21.000Z","updatedAt":"2018-02-25T16:41:46.000Z","deletedAt":null,"statusUpdatedAt":"2018-02-25T04:41:44.000Z","createdBy":"Erik Holden","createdById":"95598233","deletedBy":null,"deletedById":null,"wormholeSourceWormholeTypeId":91,"wormholeDestinationWormholeTypeId":140,"solarSystemId":31000005,"wormholeDestinationSolarSystemId":30001175,"sourceWormholeType":
                 while (jsr.Read())
@@ -2172,7 +2172,7 @@ namespace SMT.EVEData
                             System theraConnectionSystem = GetEveSystemFromID(solarSystemId);
 
                             TheraConnection tc = new TheraConnection(theraConnectionSystem.Name, theraConnectionSystem.Region, inSignatureId, outSignatureId, wormHoleEOL);
-                            TheraConnections.Add(tc);
+                                TheraConnections.Add(tc);
                         }
                     }
                 }
@@ -2185,22 +2185,22 @@ namespace SMT.EVEData
             if (TheraUpdateEvent != null)
             {
                 TheraUpdateEvent();
-            }
+        }
         }
 
         public void UpdateMetaliminalStorms()
         {
-            MetaliminalStorms.Clear();
+                MetaliminalStorms.Clear();
 
-            List<Storm> ls = Storm.GetStorms();
-            foreach (Storm s in ls)
-            {
-                System sys = GetEveSystem(s.System);
-                if (sys != null)
+                List<Storm> ls = Storm.GetStorms();
+                foreach (Storm s in ls)
                 {
-                    MetaliminalStorms.Add(s);
+                    System sys = GetEveSystem(s.System);
+                    if (sys != null)
+                    {
+                        MetaliminalStorms.Add(s);
+                    }
                 }
-            }
 
             // now update the Strong and weak areas around the storm
             foreach (Storm s in MetaliminalStorms)
@@ -2222,7 +2222,7 @@ namespace SMT.EVEData
             if (StormsUpdateEvent != null)
             {
                 StormsUpdateEvent();
-            }
+        }
         }
 
         public async void UpdateFactionWarfareInfo()
@@ -2364,8 +2364,8 @@ namespace SMT.EVEData
         {
             IOptions<EsiConfig> config = Options.Create(new EsiConfig()
             {
-                EsiUrl = "https://esi.evetech.net/",
-                DataSource = DataSource.Tranquility,
+                EsiUrl = "https://esi.evepc.163.com/",
+                DataSource = DataSource.Serenity,
                 ClientId = EveAppConfig.ClientID,
                 SecretKey = "Unneeded",
                 CallbackUrl = EveAppConfig.CallbackURL,
@@ -2375,7 +2375,7 @@ namespace SMT.EVEData
             ESIClient = new ESI.NET.EsiClient(config);
             ESIScopes = new List<string>
             {
-                "publicData",
+                //"publicData",
                 "esi-location.read_location.v1",
                 "esi-search.search_structures.v1",
                 "esi-clones.read_clones.v1",
@@ -2602,7 +2602,7 @@ namespace SMT.EVEData
 
                                     if (addChar)
                                     {
-                                        LocalCharacters.Add(new EVEData.LocalCharacter(characterName, changedFile, system));
+                                            LocalCharacters.Add(new EVEData.LocalCharacter(characterName, changedFile, system));
                                         if (LocalCharacterUpdateEvent != null)
                                         {
                                             LocalCharacterUpdateEvent();
@@ -2651,43 +2651,43 @@ namespace SMT.EVEData
                             {
                                 string system = line.Split(':').Last().Trim();
 
-                                foreach (EVEData.LocalCharacter c in LocalCharacters)
-                                {
-                                    if (c.LocalChatFile == changedFile)
+                                    foreach (EVEData.LocalCharacter c in LocalCharacters)
                                     {
-                                        c.Location = system;
+                                        if (c.LocalChatFile == changedFile)
+                                        {
+                                            c.Location = system;
+                                        }
                                     }
-                                }
                             }
                         }
                         else
                         {
-                            // check if it is in the intel list already (ie if you have multiple clients running)
-                            bool addToIntel = true;
+                                // check if it is in the intel list already (ie if you have multiple clients running)
+                                bool addToIntel = true;
 
-                            int start = line.IndexOf('>') + 1;
-                            string newIntelString = line.Substring(start);
+                                int start = line.IndexOf('>') + 1;
+                                string newIntelString = line.Substring(start);
 
-                            if (newIntelString != null)
-                            {
-                                foreach (EVEData.IntelData idl in IntelDataList)
+                                if (newIntelString != null)
                                 {
-                                    if (idl.IntelString == newIntelString && (DateTime.Now - idl.IntelTime).Seconds < 5)
+                                    foreach (EVEData.IntelData idl in IntelDataList)
                                     {
-                                        addToIntel = false;
-                                        break;
+                                        if (idl.IntelString == newIntelString && (DateTime.Now - idl.IntelTime).Seconds < 5)
+                                        {
+                                            addToIntel = false;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            else
-                            {
-                                addToIntel = false;
-                            }
+                                else
+                                {
+                                    addToIntel = false;
+                                }
 
-                            if (line.Contains("Channel MOTD:"))
-                            {
-                                addToIntel = false;
-                            }
+                                if (line.Contains("Channel MOTD:"))
+                                {
+                                    addToIntel = false;
+                                }
 
                             foreach (String ignoreMarker in IntelIgnoreFilters)
                             {
@@ -2699,43 +2699,43 @@ namespace SMT.EVEData
                             }
 
 
-                            if (addToIntel)
-                            {
-                                EVEData.IntelData id = new EVEData.IntelData(line, channelName);
-
-
-                                foreach (string s in id.IntelString.Split(' '))
+                                if (addToIntel)
                                 {
-                                    if (s == "" || s.Length < 3)
-                                    {
-                                        continue;
-                                    }
+                                    EVEData.IntelData id = new EVEData.IntelData(line, channelName);
 
-                                    foreach (String clearMarker in IntelClearFilters)
+
+                                    foreach (string s in id.IntelString.Split(' '))
                                     {
-                                        if (clearMarker.IndexOf(s, StringComparison.OrdinalIgnoreCase) == 0)
+                                        if (s == "" || s.Length < 3)
                                         {
-                                            id.ClearNotification = true;
+                                            continue;
+                                        }
+
+                                        foreach (String clearMarker in IntelClearFilters)
+                                        {
+                                            if (clearMarker.IndexOf(s, StringComparison.OrdinalIgnoreCase) == 0)
+                                            {
+                                                id.ClearNotification = true;
+                                            }
+                                        }
+
+                                        foreach (System sys in Systems)
+                                        {
+                                            if (sys.Name.IndexOf(s, StringComparison.OrdinalIgnoreCase) == 0 || s.IndexOf(sys.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                                            {
+                                                id.Systems.Add(sys.Name);
+                                            }
                                         }
                                     }
 
-                                    foreach (System sys in Systems)
-                                    {
-                                        if (sys.Name.IndexOf(s, StringComparison.OrdinalIgnoreCase) == 0 || s.IndexOf(sys.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                                        {
-                                            id.Systems.Add(sys.Name);
-                                        }
-                                    }
-                                }
-
-                                IntelDataList.Enqueue(id);
+                                    IntelDataList.Enqueue(id);
 
                                 if (IntelUpdatedEvent != null)
-                                {
+                                    {
                                     IntelUpdatedEvent(IntelDataList);
-                                }
+                                    }
 
-                            }
+                                }
                         }
 
                         line = file.ReadLine();
@@ -2866,15 +2866,15 @@ namespace SMT.EVEData
                     // strip the formatting from the log
                     line = Regex.Replace(line, "<.*?>", String.Empty);
 
-                    GameLogData gd = new GameLogData()
-                    {
-                        Character = characterName,
-                        Text = line,
-                        Severity = type,
-                        Time = DateTime.Now,
-                    };
+                        GameLogData gd = new GameLogData()
+                        {
+                            Character = characterName,
+                            Text = line,
+                            Severity = type,
+                            Time = DateTime.Now,
+                        };
 
-                    GameLogList.Enqueue(gd);
+                        GameLogList.Enqueue(gd);
                     if (GameLogAddedEvent != null)
                     {
                         GameLogAddedEvent(GameLogList);
@@ -2952,8 +2952,8 @@ namespace SMT.EVEData
                     if (LocalCharacterUpdateEvent != null)
                     {
                         LocalCharacterUpdateEvent();
-                    }
                 }
+            }
             }
             catch
             {
@@ -3195,7 +3195,7 @@ namespace SMT.EVEData
                                 ss.Type = "TCU";
                             }
 
-                            ActiveSovCampaigns.Add(ss);
+                                ActiveSovCampaigns.Add(ss);
                             sendUpdateEvent = true;
                         }
 
@@ -3251,7 +3251,7 @@ namespace SMT.EVEData
 
                     if (sc.Valid == false)
                     {
-                        ActiveSovCampaigns.Remove(sc);
+                            ActiveSovCampaigns.Remove(sc);
                         sendUpdateEvent = true;
                     }
                 }
@@ -3261,8 +3261,8 @@ namespace SMT.EVEData
                     if (SovUpdateEvent != null)
                     {
                         SovUpdateEvent();
-                    }
                 }
+            }
             }
             catch { }
         }
@@ -3272,7 +3272,7 @@ namespace SMT.EVEData
         /// </summary>
         private async void UpdateSOVFromESI()
         {
-            string url = @"https://esi.evetech.net/v1/sovereignty/map/?datasource=tranquility";
+            string url = @"https://esi.evepc.163.com/latest/sovereignty/map/?datasource=serenity";
             string strContent = string.Empty;
 
             try

@@ -1877,7 +1877,7 @@ namespace SMT
 
             if (zkbs != null)
             {
-                string KillURL = "https://zkillboard.com/kill/" + zkbs.KillID + "/";
+                string KillURL = "https://kb.ceve-market.org/kill/" + zkbs.KillID + "/";
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(KillURL) { UseShellExecute = true });
             }
         }
@@ -1893,7 +1893,7 @@ namespace SMT
 
             if (zkbs != null)
             {
-                string KillURL = "https://zkillboard.com/kill/" + zkbs.KillID + "/";
+                string KillURL = "https://kb.ceve-market.org/kill/" + zkbs.KillID + "/";
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(KillURL) { UseShellExecute = true });
             }
         }
@@ -1909,7 +1909,7 @@ namespace SMT
 
             if (zkbs != null)
             {
-                string KillURL = "https://zkillboard.com/kill/" + zkbs.KillID + "/";
+                string KillURL = "https://kb.ceve-market.org/kill/" + zkbs.KillID + "/";
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(KillURL) { UseShellExecute = true });
             }
         }

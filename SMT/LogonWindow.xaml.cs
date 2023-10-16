@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -19,14 +20,18 @@ namespace SMT
             new Task(StartServer).Start();
         }
 
+        string challengeCode = "";
+
         private void StartServer()
         {
             // create the http Server
             listener = new HttpListener();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            string challengeCode = EVEDataUtils.Misc.RandomString(32);
-            string esiLogonURL = EVEData.EveManager.Instance.GetESILogonURL(challengeCode);
-
+            challengeCode = EVEDataUtils.Misc.RandomString(32);
+            string esiLogonURL = EVEData.EveManager.Instance.GetESILogonURL(null);
+            
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://login.evepc.163.com/account/logoff") { UseShellExecute = true });
+            Thread.Sleep(1000);
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(esiLogonURL) { UseShellExecute = true });
 
             try
@@ -77,6 +82,16 @@ namespace SMT
             catch
             {
             }
+        }
+        private void Author_Click(object sender, RoutedEventArgs e)
+        {
+            if (authorUrl.Text != "")
+            {
+                Uri uri = new Uri(authorUrl.Text);
+                EVEData.EveManager.Instance.HandleEveAuthSMTUri(uri, challengeCode);
+                authorUrl.Text = "";
+            }
+
         }
     }
 }

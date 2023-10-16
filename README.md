@@ -7,6 +7,8 @@ More info here : https://forums.eveonline.com/t/smt-eve-map-tool/3845/
 
 Discord :  https://discord.gg/QSuJjNn
 
+Fork :https://github.com/Slazanger/SMT
+
 #### Build from source setup 2023.07
 - download [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/compare)
 - install using .NET desktop development

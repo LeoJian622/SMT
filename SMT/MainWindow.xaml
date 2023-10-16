@@ -51,25 +51,25 @@
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="{DynamicResource MenuBackground}" Height="Auto">
             <Menu Style="{DynamicResource ResourceKey={x:Type Menu}}" Height="Auto">
-                <MenuItem Header="File" Height="Auto">
-                    <MenuItem Header="Characters" Click="Characters_MenuItem_Click" />
-                    <MenuItem Header="Preferences" Click="Preferences_MenuItem_Click" />
-                    <MenuItem Header="Overlay" Click="OverlayWindow_MenuItem_Click" />
-                    <MenuItem Header="Exit" Click="Exit_MenuItem_Click" />
+                <MenuItem Header="文件" Height="Auto">
+                    <MenuItem Header="角色" Click="Characters_MenuItem_Click" />
+                    <MenuItem Header="首选项" Click="Preferences_MenuItem_Click" />
+                    <MenuItem Header="悬浮窗" Click="OverlayWindow_MenuItem_Click" />
+                    <MenuItem Header="退出" Click="Exit_MenuItem_Click" />
                 </MenuItem>
 
-                <MenuItem Header="Data"  Height="Auto">
-                    <MenuItem Header="Force ESI Update" Click="ForceESIUpdate_MenuItem_Click" />
-                    <MenuItem Header="Clear Old Eve logs" Click="ClearOldEVELogs_Click" />
+                <MenuItem Header="数据"  Height="Auto">
+                    <MenuItem Header="读取ESI数据" Click="ForceESIUpdate_MenuItem_Click" />
+                    <MenuItem Header="清楚旧日志" Click="ClearOldEVELogs_Click" />
                 </MenuItem>
 
-                <MenuItem Header="View" Height="Auto">
+                <MenuItem Header="界面" Height="Auto">
                     <MenuItem x:Name="miFullScreenToggle" Header="FullScreen" IsCheckable="True" IsChecked="False" Click="FullScreenToggle_MenuItem_Click" />
-                    <MenuItem x:Name="miResetLayout" Header="Reset Layout" Click="miResetLayout_Click" />
+                    <MenuItem x:Name="重置布局" Header="Reset Layout" Click="miResetLayout_Click" />
                 </MenuItem>
             </Menu>
 
-            <Label Margin="30,0,0,0" Padding="7">Active Character :</Label>
+            <Label Margin="30,0,0,0" Padding="7">活动角色 :</Label>
             <ComboBox x:Name="CurrentActiveCharacterCombo" Width="180"  IsReadOnly="True" SelectionChanged="CurrentActiveCharacterCombo_Selected"  Height="18" />
         </StackPanel>
 
@@ -85,7 +85,7 @@
             <Separator />
 
             <StatusBarItem>
-                <TextBlock><Run Text="Tranquility Version:" /></TextBlock>
+                <TextBlock><Run Text="晨曦版本:" /></TextBlock>
             </StatusBarItem>
 
             <StatusBarItem>
@@ -99,7 +99,7 @@
             </StatusBarItem>
 
             <StatusBarItem>
-                <TextBlock Text="Players" />
+                <TextBlock Text="玩家数" />
             </StatusBarItem>
         </StatusBar>
         <xcad:DockingManager x:Name="dockManager">
@@ -627,8 +627,8 @@
 
                                                 <DataGrid.ContextMenu>
                                                     <ContextMenu>
-                                                        <MenuItem Header="Show System" Click="ZKBContexMenu_ShowSystem_Click" />
-                                                        <MenuItem Header="Open Kill on ZKB" Click="ZKBContexMenu_ShowZKB_Click" />
+                                                        <MenuItem Header="显示星系" Click="ZKBContexMenu_ShowSystem_Click" />
+                                                        <MenuItem Header="在ZKB显示" Click="ZKBContexMenu_ShowZKB_Click" />
                                                     </ContextMenu>
                                                 </DataGrid.ContextMenu>
                                             </DataGrid>

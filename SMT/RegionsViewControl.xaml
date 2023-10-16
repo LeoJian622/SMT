@@ -48,7 +48,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="TogglePodKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding MapConf.ShowUniversePods}" ToolTip="Pod kills in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="TogglePodKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding MapConf.ShowUniversePods}" ToolTip="过去1小时击毁太空舱数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -71,7 +71,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="ToggleShipKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" BorderBrush="Transparent" Foreground="Transparent" IsChecked="{Binding MapConf.ShowUniverseKills}" ToolTip="Ship kill in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="ToggleShipKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" BorderBrush="Transparent" Foreground="Transparent" IsChecked="{Binding MapConf.ShowUniverseKills}" ToolTip="过去1小时击毁舰船数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -94,7 +94,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="ToggleRatKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding MapConf.ShowUniverseRats}" ToolTip="NPC Kills in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="ToggleRatKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding MapConf.ShowUniverseRats}" ToolTip="过去1小时击毁NPC数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background" Value="Transparent" />

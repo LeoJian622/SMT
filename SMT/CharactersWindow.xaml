@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Closed="Window_Closed"
         Loaded="Window_Loaded"
-        Title="Characters" Height="450" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="角色" Height="450" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
         <ObjectDataProvider x:Key="navigationEnumData" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
@@ -39,7 +39,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        <Button DockPanel.Dock="Bottom" Content="Add Character" Grid.Row="1" Click="AddCharacter_Click" Margin="4" />
+        <Button DockPanel.Dock="Bottom" Content="添加角色" Grid.Row="1" Click="AddCharacter_Click" Margin="4" />
 
         <Grid x:Name="characterInfoGrid" Grid.Column="1" Grid.RowSpan="2" Visibility="Hidden"
               Background="{DynamicResource ListBackground}">

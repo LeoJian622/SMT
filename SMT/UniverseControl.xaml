@@ -65,7 +65,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Margin="4,2,1,2"  Orientation="Horizontal" HorizontalAlignment="Left">
-            <Label Content="Search :" />
+            <Label Content="搜索 :" />
             <dotNetKitControls:AutoCompleteComboBox x:Name="GlobalSystemDropDownAC" Width="200" FontSize="12" Margin="5,0" SelectionChanged="GlobalSystemDropDownAC_SelectionChanged" TextSearch.TextPath="Name">
                 <dotNetKitControls:AutoCompleteComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -77,7 +77,7 @@
                 <Image Source="Images/recentre.png" />
             </Button>
 
-            <CheckBox x:Name="FollowCharacterChk" Margin="5,-1,5,0" Content="Auto Follow Active Character" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False" Checked="FollowCharacterChk_Checked" />
+            <CheckBox x:Name="FollowCharacterChk" Margin="5,-1,5,0" Content="自动跟踪当前角色" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False" Checked="FollowCharacterChk_Checked" />
         </StackPanel>
 
         <zc:ZoomControl x:Name="MainZoomControl" MinZoom="0.5" MaxZoom="10" Margin="0" ZoomChanged="MainZoomControl_ZoomChanged" Grid.Row="1" Zoom="1.2" ContentDragFinished="MainZoomControl_ContentDragFinished">
@@ -121,7 +121,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="TogglePodKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowPodKills}" ToolTip="Pod kills in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="TogglePodKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowPodKills}" ToolTip="过去1小时击毁太空舱数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background">
@@ -150,7 +150,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="ToggleShipKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" IsChecked="{Binding Path=ShowShipKills}" ToolTip="Ship kill in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="ToggleShipKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" IsChecked="{Binding Path=ShowShipKills}" ToolTip="过去1小时击毁舰船数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background">
@@ -179,7 +179,7 @@
                                 </Image>
                             </ToggleButton>
 
-                            <ToggleButton x:Name="ToggleRatKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowNPCKills}" ToolTip="NPC Kills in the Last hour" Width="30" Height="30">
+                            <ToggleButton x:Name="ToggleRatKillsBtn" Margin="1,0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowNPCKills}" ToolTip="过去1小时击毁NPC数量" Width="30" Height="30">
                                 <ToggleButton.Style>
                                     <Style TargetType="{x:Type ToggleButton}">
                                         <Setter Property="Background">

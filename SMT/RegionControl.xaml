@@ -135,7 +135,7 @@
                     <Grid Canvas.Left="0" Canvas.Top="0" Width="167" HorizontalAlignment="Center">
 
                         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0">
-                            <Label x:Name="RegionNameLabel" Content="Region" FontSize="16" Grid.Column="1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#FF767576" FontFamily="Ebrima" />
+                            <Label x:Name="RegionNameLabel" Content="星系" FontSize="16" Grid.Column="1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#FF767576" FontFamily="Ebrima" />
 
                             <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -168,7 +168,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleSecurityBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowSystemSecurity}" ToolTip="Show System Security" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleSecurityBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowSystemSecurity}" ToolTip="显示安等" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -197,7 +197,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleSOVBtn" Margin="0" BorderThickness="0" IsChecked="{Binding Path=ShowSovOwner}" ToolTip="Show Sov Owners" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleSOVBtn" Margin="0" BorderThickness="0" IsChecked="{Binding Path=ShowSovOwner}" ToolTip="显示主权信息" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -225,7 +225,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleStandingsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowStandings}" ToolTip="Show Standings" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleStandingsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowStandings}" ToolTip="显示排名" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -254,7 +254,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleJumpBridgesBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowJumpBridges}" ToolTip="Show Jump Bridges" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleJumpBridgesBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowJumpBridges}" ToolTip="显示跳桥" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -286,7 +286,7 @@
 
                             <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                                <ToggleButton x:Name="TogggleTimersBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowSystemTimers}" ToolTip="Show Timers" Width="30" Height="30">
+                                <ToggleButton x:Name="TogggleTimersBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowSystemTimers}" ToolTip="显示窗口时间" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -315,7 +315,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleJumpsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowShipJumps}" ToolTip="Jumps in the Last hour" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleJumpsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowShipJumps}" ToolTip="过去一小时跳跃数量" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -344,7 +344,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="TogglePodKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowPodKills}" ToolTip="Pod kills in the Last hour" Width="30" Height="30">
+                                <ToggleButton x:Name="TogglePodKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowPodKills}" ToolTip="过去一小时击毁太空舱数量" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -373,7 +373,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleShipKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" IsChecked="{Binding Path=ShowShipKills}" ToolTip="Ship kill in the Last hour" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleShipKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" IsChecked="{Binding Path=ShowShipKills}" ToolTip="过去1小时击毁舰船数量" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">
@@ -402,7 +402,7 @@
                                     </Image>
                                 </ToggleButton>
 
-                                <ToggleButton x:Name="ToggleRatKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowNPCKills}" ToolTip="NPC Kills in the Last hour" Width="30" Height="30">
+                                <ToggleButton x:Name="ToggleRatKillsBtn" Margin="0" Background="{x:Null}" BorderThickness="0" IsChecked="{Binding Path=ShowNPCKills}" ToolTip="过去1小时击毁NPC数量" Width="30" Height="30">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Background">

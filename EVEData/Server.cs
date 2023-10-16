@@ -14,7 +14,7 @@ namespace SMT.EVEData
         public Server()
         {
             // EVE Time is basically UTC time
-            ServerTime = DateTime.UtcNow;
+            ServerTime = DateTime.Now;
 
             Timer timer = new Timer(10000);
             timer.Elapsed += new ElapsedEventHandler(UpdateServerTime); ;
@@ -68,7 +68,7 @@ namespace SMT.EVEData
 
         public void UpdateServerTime(object sender, EventArgs e)
         {
-            ServerTime = DateTime.UtcNow;
+            ServerTime = DateTime.Now;
         }
 
         protected void OnPropertyChanged(string name)

@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMT"
         mc:Ignorable="d"
-        Title="Auth.." Height="120" Width="250" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="授权.." Height="120" Width="250" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid>
         <StackPanel Background="#FF232223">
             <Label>logon using the browser that opened...</Label>
         </StackPanel>
+        <TextBox x:Name="authorUrl" HorizontalAlignment="Left" Margin="42,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="174" />
+        <Label Content="授权" HorizontalAlignment="Left" Margin="6,28,0,0" VerticalAlignment="Top" Width="34" Height="22"/>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="158,57,0,0" VerticalAlignment="Top" Width="58" Click="Author_Click"/>
     </Grid>
 </Window>
