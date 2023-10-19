@@ -3355,13 +3355,13 @@ namespace SMT.EVEData
 
                 if (ESIHelpers.ValidateESICall<ESI.NET.Models.Status.Status>(esr))
                 {
-                    ServerInfo.Name = "Tranquility";
+                    ServerInfo.Name = "Serenity";
                     ServerInfo.NumPlayers = esr.Data.Players;
                     ServerInfo.ServerVersion = esr.Data.ServerVersion.ToString();
                 }
                 else
                 {
-                    ServerInfo.Name = "Tranquility";
+                    ServerInfo.Name = "Serenity";
                     ServerInfo.NumPlayers = 0;
                     ServerInfo.ServerVersion = "";
                 }
