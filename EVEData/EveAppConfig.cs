@@ -13,7 +13,7 @@ namespace SMT.EVEData
         /// <summary>
         /// Callback URL for eve
         /// </summary>
-        public const string CallbackURL = @"https://esi.evepc.163.com/ui/oauth2-redirect.html";
+        public const string CallbackURL = @"https://ali-esi.evepc.163.com/ui/oauth2-redirect.html";
 
         /// <summary>
         /// Client ID from the EVE Developer setup

@@ -2364,7 +2364,7 @@ namespace SMT.EVEData
         {
             IOptions<EsiConfig> config = Options.Create(new EsiConfig()
             {
-                EsiUrl = "https://esi.evepc.163.com/",
+                EsiUrl = "https://ali-esi.evepc.163.com/",
                 DataSource = DataSource.Serenity,
                 ClientId = EveAppConfig.ClientID,
                 SecretKey = "Unneeded",
@@ -3272,7 +3272,7 @@ namespace SMT.EVEData
         /// </summary>
         private async void UpdateSOVFromESI()
         {
-            string url = @"https://esi.evepc.163.com/latest/sovereignty/map/?datasource=serenity";
+            string url = @"https://ali-esi.evepc.163.com/latest/sovereignty/map/?datasource=serenity";
             string strContent = string.Empty;
 
             try
